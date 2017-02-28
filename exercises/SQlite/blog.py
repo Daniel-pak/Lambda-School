@@ -7,6 +7,7 @@ print("Opened Database")
 # connected to the database
 
 connection.execute('CREATE TABLE IF NOT EXISTS posts (title TEXT, post TEXT)')
+# if the database posts does not exist then create it!
 print('Table created')
 # creating table - do something
 
@@ -22,6 +23,7 @@ def new_post():
     return render_template("new.html")
 
 @app.route('/addrecord', methods = ['POST'])
+# addrecord accepts post requests
 def addrecord():
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
